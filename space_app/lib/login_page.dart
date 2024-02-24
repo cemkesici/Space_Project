@@ -57,11 +57,10 @@ class _LoginPageState extends State<LoginPage> {
                             email: _emailController.text,
                             password: _passwordController.text,
                           );*/
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Home()),
-                          );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Home()),
+                        );
                         /*} on FirebaseAuthException catch (e) {
                           ScaffoldMessenger.of(BuildContext as BuildContext).showSnackBar(
                             SnackBar(content: Text(e.message!)),

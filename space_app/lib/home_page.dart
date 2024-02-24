@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'api_services.dart';
-import 'user_model.dart';
+import 'package:space_app/api_services.dart';
+import 'package:space_app/data_model.dart';
 
 void main() => runApp(const Home());
 
@@ -13,16 +12,32 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  late List<UserModel>? _userModel = [];
+  //api Key
+  final _weatherService = WeatherService();
+  // ignore: unused_field
+  Weather? _weather;
+
+  //fetch Weather
+  _fetchWeather() async {
+    //get the current city
+    String cityName = await _weatherService.getCurrentCity();
+    //get weather for city
+    try {
+      final weather = await _weatherService.getWeather(cityName);
+      setState(() {
+        _weather = weather;
+      });
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+//init State
   @override
   void initState() {
     super.initState();
-    _getData();
-  }
-
-  void _getData() async {
-    _userModel = (await ApiService().getUsers())!;
-    Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
+    //fetch weather on startup
+    _fetchWeather();
   }
 
   @override
@@ -36,50 +51,34 @@ class _HomeState extends State<Home> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Positioned(
-            child: Center(
-              child: Image.asset(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Image.asset(
                 'assets/logo.png',
+                fit: BoxFit.contain,
+                height: 66,
               ),
-            ),
+              const SizedBox(
+                height: 36,
+                child: VerticalDivider(
+                  color: Color.fromARGB(255, 70, 69, 69),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(5),
+                alignment: AlignmentDirectional.bottomEnd,
+                child: Text(
+                  "${_weather?.cityName}: ${_weather?.temprature} °C",
+                  style: const TextStyle(fontSize: 14),
+                ),
+              )
+            ],
           ),
         ),
-        body: _userModel == null || _userModel!.isEmpty
-            ? const Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                itemCount: _userModel!.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Number: ${_userModel![index].id}"),
-                            Text("User Name: ${_userModel![index].username}"),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Email: ${_userModel![index].email}"),
-                            Text("Phone: ${_userModel![index].phone}"),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
+        body: const Column(
+          children: [],
+        ),
         bottomNavigationBar: const BottomAppBar(
           color: Color.fromARGB(255, 255, 147, 24),
           child: Row(
