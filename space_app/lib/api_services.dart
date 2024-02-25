@@ -2,21 +2,20 @@
 
 import 'dart:convert';
 
-import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/Geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:space_app/data_model.dart';
+import 'package:tuple/tuple.dart';
 
 class WeatherService {
   // ignore: constant_identifier_names
   static const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
   final String apiKey = "3dc691ae0c4678908fbc53c4dd033e0b";
-
   WeatherService();
 
-  Future<Weather> getWeather(String cityName) async {
-    final response = await http
-        .get(Uri.parse('$BASE_URL?q=${cityName}&appid=${apiKey}&units=metric'));
+  Future<Weather> getWeather(double lat, double lon) async {
+    final response = await http.get(Uri.parse(
+        '$BASE_URL?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric'));
 
     if (response.statusCode == 200) {
       return Weather.fromJson(jsonDecode(response.body));
@@ -25,7 +24,7 @@ class WeatherService {
     }
   }
 
-  Future<String> getCurrentCity() async {
+  Future<Tuple2<double, double>> getCurrentCity() async {
     //İMPORT GEOLOCATOR
     try {
       bool serviceEnabled;
@@ -54,21 +53,12 @@ class WeatherService {
       Position position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.high);
 
-      //Convert the location into a list of placemark objects İMPORT GEOCODİNG
-      List<Placemark> placemark =
-          await placemarkFromCoordinates(position.latitude, position.longitude);
+      double lat = double.parse(position.latitude.toStringAsFixed(2));
+      double long = double.parse(position.longitude.toStringAsFixed(2));
 
-      //extract the city name from the first placemark
-      if (placemark[0].locality != null) {
-        String? city = placemark[0].locality;
-        return city ?? "";
-      } else {
-        return Future.error('Location is not find');
-      }
+      return Tuple2(lat, long);
     } catch (e) {
       throw Exception(e);
-    } finally {
-      return "İstanbul";
     }
   }
 }

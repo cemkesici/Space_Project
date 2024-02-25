@@ -20,10 +20,12 @@ class _HomeState extends State<Home> {
   //fetch Weather
   _fetchWeather() async {
     //get the current city
-    String cityName = await _weatherService.getCurrentCity();
+    var temp = (await _weatherService.getCurrentCity());
+    double lat = temp.item1;
+    double lon = temp.item2;
     //get weather for city
     try {
-      final weather = await _weatherService.getWeather(cityName);
+      final weather = await _weatherService.getWeather(lat,lon);
       setState(() {
         _weather = weather;
       });
