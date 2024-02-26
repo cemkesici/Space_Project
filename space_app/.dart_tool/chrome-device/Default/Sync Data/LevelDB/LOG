@@ -1,20 +1,4 @@
-2024/02/26-04:02:32.472 9cdc Reusing MANIFEST C:\Users\cemke\AppData\Local\Temp\flutter_tools.f3bf28fe\flutter_tools_chrome_device.5484962c\Default\Sync Data\LevelDB/MANIFEST-000001
-2024/02/26-04:02:32.473 9cdc Recovering log #48
-2024/02/26-04:02:32.475 9cdc Reusing old log C:\Users\cemke\AppData\Local\Temp\flutter_tools.f3bf28fe\flutter_tools_chrome_device.5484962c\Default\Sync Data\LevelDB/000048.log 
-2024/02/26-04:02:32.476 9cdc Delete type=0 #18
-2024/02/26-04:02:32.476 9cdc Delete type=2 #20
-2024/02/26-04:02:32.476 9cdc Delete type=0 #22
-2024/02/26-04:02:32.476 9cdc Delete type=2 #23
-2024/02/26-04:02:32.476 9cdc Delete type=0 #25
-2024/02/26-04:02:32.476 9cdc Delete type=2 #26
-2024/02/26-04:02:32.476 9cdc Delete type=0 #28
-2024/02/26-04:02:32.476 9cdc Delete type=2 #29
-2024/02/26-04:02:32.476 9cdc Delete type=0 #31
-2024/02/26-04:02:32.477 9cdc Delete type=2 #33
-2024/02/26-04:02:32.477 9cdc Delete type=0 #35
-2024/02/26-04:02:32.477 9cdc Delete type=2 #36
-2024/02/26-04:02:32.477 9cdc Delete type=0 #38
-2024/02/26-04:02:32.477 9cdc Delete type=2 #39
-2024/02/26-04:02:32.477 9cdc Delete type=0 #41
-2024/02/26-04:02:32.477 9cdc Delete type=2 #42
-2024/02/26-04:02:32.477 9cdc Delete type=0 #44
+2024/02/26-21:11:32.933 1f3c Reusing MANIFEST C:\Users\cemke\AppData\Local\Temp\flutter_tools.a8faf729\flutter_tools_chrome_device.3534f96a\Default\Sync Data\LevelDB/MANIFEST-000001
+2024/02/26-21:11:32.934 1f3c Recovering log #4
+2024/02/26-21:11:32.935 1f3c Reusing old log C:\Users\cemke\AppData\Local\Temp\flutter_tools.a8faf729\flutter_tools_chrome_device.3534f96a\Default\Sync Data\LevelDB/000004.log 
+2024/02/26-21:11:32.936 1f3c Delete type=0 #3

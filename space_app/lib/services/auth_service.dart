@@ -9,6 +9,7 @@ import 'package:space_app/screens/main_page.dart';
 
 class AuthService {
   final userCollection = FirebaseFirestore.instance.collection("users");
+  final postCollection = FirebaseFirestore.instance.collection("posts");
   final firebaseAuth = FirebaseAuth.instance;
 
   Future<void> signUp(
@@ -77,6 +78,35 @@ class AuthService {
           timeInSecForIosWeb: 2,
         );
       }
+    }
+  }
+
+  Future<void> sharePost(
+      {required BuildContext context,
+      required String details,
+      required String userName,
+      required String title}) async {
+    try {
+      await postCollection.doc().set({
+        "details": details,
+        "userName": userName,
+        "title": title,
+        'createdAt': FieldValue.serverTimestamp()
+      });
+      Fluttertoast.showToast(
+        msg: "Paylaşım Yapıldı!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+      );
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      Fluttertoast.showToast(
+        msg: e.message!,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+      );
     }
   }
 

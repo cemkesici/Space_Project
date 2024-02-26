@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:space_app/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class _LoginPagePageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,11 +53,14 @@ class _LoginPagePageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         _authService.signIn(
                             context: context,
                             email: _emailController.text,
                             password: _passwordController.text);
+                        SharedPreferences prefs =
+                            await SharedPreferences.getInstance();
+                        prefs.setString("email", _emailController.text);
                       },
                       child: const Text('Giriş Yap'),
                     ),

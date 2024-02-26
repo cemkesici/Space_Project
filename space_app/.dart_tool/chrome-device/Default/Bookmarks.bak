@@ -1,0 +1,60 @@
+{
+   "checksum": "be6e0a4bde9a96d3fe1b84eac347568f",
+   "roots": {
+      "bookmark_bar": {
+         "children": [  ],
+         "date_added": "13353441947031654",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Sık kullanılanlar çubuğu",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "children": [  ],
+            "date_added": "13350744295661825",
+            "date_last_used": "0",
+            "date_modified": "13350744295661825",
+            "guid": "971e5448-f362-4feb-8b21-780a96566627",
+            "id": "7",
+            "name": "Other Bookmarks",
+            "source": "unknown",
+            "type": "folder"
+         }, {
+            "children": [  ],
+            "date_added": "13350744295662198",
+            "date_last_used": "0",
+            "date_modified": "13353442945682742",
+            "guid": "5d038b93-7cd4-497e-9bb5-468a93882c72",
+            "id": "8",
+            "name": "Synced Bookmarks",
+            "source": "unknown",
+            "type": "folder"
+         } ],
+         "date_added": "13353441947031657",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Diğer sık kullanılanlar",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13353441947031659",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobil sık kullanılanlar",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CjEKDgiIgQISCCUbguaNAQAAEgAqGGY1b3l6WHRVWW9IcE5qRWMxS1UvYnc9PUgDoAYMEokBCAMShAEKHG5qZ0R1ODhlQ3J2WHA4NnBEN2ZIR2NxRnA4OD0SJGE4ZjBmZWVmLWE4YzYtNTJlNC05ZjdhLTZmMjc5NWQxNzQ1MBgAIAAoADD19JO7sTA4vbyn1+wvQL28p9fsL0oceXpOQjAxY241NEE3Y1JVMHVUKy9QZ21UdFVvPVoAZQAAAAASiQEIAhKEAQocWWNTVG9udkVTUHdxQ3M0TDJjclZodjY4TDk4PRIkMDFmMjJkMDUtNzNiZi01NjYxLTliNzMtNDlkYjRmNGE3YTY1GAAgACgAMPX0k7uxMDjvu6fX7C9A77un1+wvShxvUFZraHdCUmJWNjVLQ1dSMitJT05IV29PdTg9WgBlAAAAABKnAQgIEqIBChxOcGJNS25NQlhRQUhNV1hrSldJUEZGV09NeUk9EiQ1ZDAzOGI5My03Y2Q0LTQ5N2UtOWJiNS00NjhhOTM4ODJjNzIYACAAKAAw3c6irdQxOJjRoq3UMUCY0aKt1DFKHDB2M3dPeG1Wc0l4NlFRemYxa05lZGFQcTJCUT1aHiIca1FZWmk3VHZZNk1ZUVJzcUpTc3lLQUxkMFpzPWUAAAAAEqcBCAcSogEKHDBUNXdxci9ZWWo1ckFkMFFrZi9NeFhkZUkydz0SJDk3MWU1NDQ4LWYzNjItNGZlYi04YjIxLTc4MGE5NjU2NjYyNxgAIAAoADDezqKt1DE4utGirdQxQLrRoq3UMUocbytLeW05bGpzRmxvN3RGVjI5NEZIZkdJMDg0PVoeIhxQV3REMjlhWjJVR05qbng1QWxJalFNOGNEdWM9ZQAAAAASiQEIARKEAQoceXhKLzZmdmtlY3I3a3A1RVF6QjR0V0xwZGJFPRIkNGMwMGRiMmEtMmZjYi01ODU0LTkyYzgtNmE3NjlmYzU4NzIyGAAgACgAMPX0k7uxMDjQu6fX7C9A0Lun1+wvShxhUkNXTGdoRjliNUlucUtJRHZ1Si9qdlFrRmM9WgBlAAAAADAAOAA=",
+   "version": 1
+}
