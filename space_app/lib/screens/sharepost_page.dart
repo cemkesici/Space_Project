@@ -40,7 +40,7 @@ class _SharePostPageState extends State<SharePostPage> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {},
-                child: const Text('Giriş Yap'),
+                child: const Text('Paylaş'),
               ),
             ],
           ),
