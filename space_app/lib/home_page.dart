@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
     double lon = temp.item2;
     //get weather for city
     try {
-      final weather = await _weatherService.getWeather(lat,lon);
+      final weather = await _weatherService.getWeather(lat, lon);
       setState(() {
         _weather = weather;
       });
@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
       home: Scaffold(
         appBar: AppBar(
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Image.asset(
                 'assets/logo.png',
@@ -69,10 +69,19 @@ class _HomeState extends State<Home> {
               ),
               Container(
                 padding: const EdgeInsets.all(5),
-                alignment: AlignmentDirectional.bottomEnd,
-                child: Text(
-                  "${_weather?.cityName}: ${_weather?.temprature} °C",
-                  style: const TextStyle(fontSize: 14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      "${_weather?.cityName}: ${_weather?.temprature} °C",
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                    Text(
+                      "${_weather?.mainCondition}",
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  ],
                 ),
               )
             ],
