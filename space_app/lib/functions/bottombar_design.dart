@@ -24,7 +24,7 @@ BottomAppBar bottomarDesign(BuildContext context) {
               builder: (BuildContext context) {
                 return AlertDialog(
                   title: const Text(
-                    'Çıkmak istediğinizden emin misiniz?',
+                    'Çıkmak istediğiniz emin misiniz?',
                     style: TextStyle(fontSize: 16),
                   ),
                   actions: [
