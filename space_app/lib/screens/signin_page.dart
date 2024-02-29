@@ -19,6 +19,7 @@ class _SigninPageState extends State<SigninPage> {
   final emailController = TextEditingController();
   final nameController = TextEditingController();
   final passwordController = TextEditingController();
+  final surnameController = TextEditingController();
   RegExp regex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
 
   Future<User?> signIn(String email, String password) async {
@@ -58,6 +59,11 @@ class _SigninPageState extends State<SigninPage> {
                     TextField(
                       controller: nameController,
                       decoration: const InputDecoration(labelText: 'İsim'),
+                    ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: surnameController,
+                      decoration: const InputDecoration(labelText: 'Soyisim'),
                     ),
                     const SizedBox(height: 10),
                     TextField(
@@ -101,6 +107,7 @@ class _SigninPageState extends State<SigninPage> {
                         } else {
                           await AuthService().signUp(
                               name: nameController.text,
+                              surname : surnameController.text,
                               email: emailController.text,
                               password: passwordController.text,
                               context: context);

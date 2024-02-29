@@ -5,16 +5,23 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:space_app/screens/home_page.dart';
-import 'package:space_app/screens/main_page.dart';
+
+import '../screens/login_page.dart';
 
 class AuthService {
   final userCollection = FirebaseFirestore.instance.collection("users");
   final postCollection = FirebaseFirestore.instance.collection("posts");
   final firebaseAuth = FirebaseAuth.instance;
 
+  Future<bool> checkLoginStatus() async {
+    await Future.delayed(const Duration(seconds: 2));
+    return false;
+  }
+
   Future<void> signUp(
       {required BuildContext context,
       required String name,
+      required String surname,
       required String email,
       required String password}) async {
     try {
@@ -25,7 +32,11 @@ class AuthService {
       );
       if (userCredential.user != null) {
         registerUser(
-            context: context, name: name, email: email, password: password);
+            context: context,
+            name: name,
+            surname: surname,
+            email: email,
+            password: password);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -66,7 +77,7 @@ class AuthService {
         Fluttertoast.showToast(
             msg: "Giriş başarılı", toastLength: Toast.LENGTH_LONG);
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Home(),
+          builder: (context) => const Home(),
         ));
       }
     } on FirebaseAuthException catch (e) {
@@ -99,7 +110,12 @@ class AuthService {
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 2,
       );
-      Navigator.pop(context);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Home(),
+        ),
+      );
     } on FirebaseAuthException catch (e) {
       Fluttertoast.showToast(
         msg: e.message!,
@@ -113,12 +129,16 @@ class AuthService {
   Future<void> registerUser(
       {required BuildContext context,
       required String name,
+      required String surname,
       required String email,
       required String password}) async {
     try {
-      await userCollection
-          .doc()
-          .set({"email": email, "name": name, "password": password});
+      await userCollection.doc().set({
+        "email": email.toString().trim(),
+        "name": name.toString().trim(),
+        "surname": surname.toString().trim(),
+        "password": password.toString().trim()
+      });
       Fluttertoast.showToast(
         msg: "Kayıt Başarılı!",
         toastLength: Toast.LENGTH_LONG,
@@ -126,7 +146,7 @@ class AuthService {
         timeInSecForIosWeb: 2,
       );
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const MainPage(),
+        builder: (context) => LoginPage(),
       ));
     } on FirebaseAuthException catch (e) {
       Fluttertoast.showToast(
